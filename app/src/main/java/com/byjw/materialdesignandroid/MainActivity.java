@@ -3,9 +3,15 @@ package com.byjw.materialdesignandroid;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.byjw.materialdesignandroid.Books.Books;
+import com.byjw.materialdesignandroid.Movies.Movies;
+import com.byjw.materialdesignandroid.Music.Music;
+import com.byjw.materialdesignandroid.Shopping.Shopping;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,12 +21,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
 
-    @BindView(R.id.view_pager)
-    ViewPager viewPager;
-
-    public static PagerAdapter adapter;
-    private final int NUM_OF_PAGES = 4;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        adapter = new PagerAdapter(getSupportFragmentManager());
-
-        viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(0);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, Movies.newInstance()).commit();
 
     }
 
@@ -43,21 +41,26 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_movies:
-//                    viewPager.setCurrentItem(0);
+                    replaceFragment(Movies.newInstance());
                     return true;
                 case R.id.navigation_music:
-//                    viewPager.setCurrentItem(1);
+                    replaceFragment(Music.newInstance());
                     return true;
                 case R.id.navigation_books:
-//                    viewPager.setCurrentItem(2);
+                    replaceFragment(Books.newInstance());
                     return true;
-                case R.id.navigation_news:
-//                    viewPager.setCurrentItem(3);
+                case R.id.navigation_shopping:
+                    replaceFragment(Shopping.newInstance());
                     return true;
             }
             return false;
         }
 
     };
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+    }
 
 }
