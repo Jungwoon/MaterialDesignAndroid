@@ -1,4 +1,4 @@
-package com.byjw.materialdesignandroid;
+package com.byjw.materialdesignandroid.Main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.byjw.materialdesignandroid.Books.Books;
 import com.byjw.materialdesignandroid.Movies.Movies;
 import com.byjw.materialdesignandroid.Music.Music;
+import com.byjw.materialdesignandroid.R;
 import com.byjw.materialdesignandroid.Shopping.Shopping;
 
 import butterknife.BindView;

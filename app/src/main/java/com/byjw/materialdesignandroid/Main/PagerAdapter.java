@@ -1,4 +1,4 @@
-package com.byjw.materialdesignandroid;
+package com.byjw.materialdesignandroid.Main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
