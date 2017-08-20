@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         ButterKnife.bind(this);
 
         mainPresenter = new MainPresenter();
-
         mainPresenter.attachView(this, getSupportFragmentManager());
         mainPresenter.setFragment();
 
