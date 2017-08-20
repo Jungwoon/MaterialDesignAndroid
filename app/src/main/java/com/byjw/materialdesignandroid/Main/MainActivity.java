@@ -3,12 +3,13 @@ package com.byjw.materialdesignandroid.Main;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.byjw.materialdesignandroid.Books.Books;
+import com.byjw.materialdesignandroid.Main.Contract.MainContract;
+import com.byjw.materialdesignandroid.Main.Contract.MainPresenter;
 import com.byjw.materialdesignandroid.Movies.Movies;
 import com.byjw.materialdesignandroid.Music.Music;
 import com.byjw.materialdesignandroid.R;
@@ -17,10 +18,12 @@ import com.byjw.materialdesignandroid.Shopping.Shopping;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
+
+    MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,40 +31,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mainPresenter = new MainPresenter();
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, Movies.newInstance()).commit();
+        mainPresenter.attachView(this, getSupportFragmentManager());
+        mainPresenter.setFragment();
 
+        navigation.setOnNavigationItemSelectedListener(selectedListener);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mainPresenter.detachView();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener selectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_movies:
-                    replaceFragment(Movies.newInstance());
+                    mainPresenter.replaceFragment(Movies.newInstance());
                     return true;
                 case R.id.navigation_music:
-                    replaceFragment(Music.newInstance());
+                    mainPresenter.replaceFragment(Music.newInstance());
                     return true;
                 case R.id.navigation_books:
-                    replaceFragment(Books.newInstance());
+                    mainPresenter.replaceFragment(Books.newInstance());
                     return true;
                 case R.id.navigation_shopping:
-                    replaceFragment(Shopping.newInstance());
+                    mainPresenter.replaceFragment(Shopping.newInstance());
                     return true;
             }
             return false;
         }
 
     };
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-    }
-
 }
