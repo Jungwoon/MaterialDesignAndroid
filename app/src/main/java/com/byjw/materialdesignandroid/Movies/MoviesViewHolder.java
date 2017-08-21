@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.byjw.materialdesignandroid.Listener.OnItemClickListener;
 import com.byjw.materialdesignandroid.R;
 
@@ -44,7 +45,7 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(MoviesModel moviesModel) {
-        image.setImageBitmap(moviesModel.getImage());
+        Glide.with(context).load(moviesModel.getImage()).into(image);
         title.setText(moviesModel.getTitle());
         genre.setText(moviesModel.getGenre());
 

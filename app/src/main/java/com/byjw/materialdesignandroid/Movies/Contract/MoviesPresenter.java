@@ -2,6 +2,7 @@ package com.byjw.materialdesignandroid.Movies.Contract;
 
 import com.byjw.materialdesignandroid.Listener.OnItemClickListener;
 import com.byjw.materialdesignandroid.Movies.MoviesModel;
+import com.byjw.materialdesignandroid.R;
 
 import java.util.ArrayList;
 
@@ -25,17 +26,24 @@ public class MoviesPresenter implements MoviesContract.Presenter, OnItemClickLis
     }
 
     @Override
-    public void loadItems(ArrayList<MoviesModel> movieList) {
-        if (movieList == null) return;
-
-        adapterModel.addItems(movieList);
+    public void loadItems() {
+        adapterModel.addItems(getList());
         adapterView.notifyAdapter();
     }
-
 
     @Override
     public void onClickListener() {}
 
     @Override
     public void onLongClickListener() {}
+
+    private ArrayList<MoviesModel> getList() {
+        ArrayList<MoviesModel> moviesModels = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            moviesModels.add(new MoviesModel(R.drawable.sample_book, "Sample Title", "Sample Genre"));
+        }
+
+        return moviesModels;
+    }
 }

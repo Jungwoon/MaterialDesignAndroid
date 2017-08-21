@@ -1,28 +1,26 @@
 package com.byjw.materialdesignandroid.Movies;
 
-import android.graphics.Bitmap;
-
 /**
  * Created by jungwoon on 2017. 8. 20..
  */
 
 public class MoviesModel {
 
-    private Bitmap image;
+    private int image;
     private String title;
     private String genre;
 
-    public MoviesModel(Bitmap image, String title, String genre) {
+    public MoviesModel(int image, String title, String genre) {
         this.image = image;
         this.title = title;
         this.genre = genre;
     }
 
-    public Bitmap getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(int image) {
         this.image = image;
     }
 

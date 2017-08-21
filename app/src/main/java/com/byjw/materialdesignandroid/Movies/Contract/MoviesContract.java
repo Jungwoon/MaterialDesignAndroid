@@ -33,7 +33,7 @@ public interface MoviesContract {
 
         void setMoviesAdapterModel(MoviesContract.Model adapterModel);
 
-        void loadItems(ArrayList<MoviesModel> movieList);
+        void loadItems();
 
     }
 }

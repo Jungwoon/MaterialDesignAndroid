@@ -1,7 +1,5 @@
 package com.byjw.materialdesignandroid.Movies;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -12,8 +10,6 @@ import android.view.ViewGroup;
 
 import com.byjw.materialdesignandroid.Movies.Contract.MoviesPresenter;
 import com.byjw.materialdesignandroid.R;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,19 +48,7 @@ public class Movies extends Fragment {
         moviesPresenter = new MoviesPresenter();
         moviesPresenter.setMoviesAdapterModel(moviesAdapter);
         moviesPresenter.setMoviesAdapterView(moviesAdapter);
-        moviesPresenter.loadItems(getList());
+        moviesPresenter.loadItems();
     }
 
-    private ArrayList<MoviesModel> getList() {
-        Bitmap sampleImage = ((BitmapDrawable)getResources().getDrawable(R.drawable.sample_book)).getBitmap();
-
-        ArrayList<MoviesModel> moviesModels = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            moviesModels.add(new MoviesModel(sampleImage, "Sample Title", "Sample Genre"));
-        }
-
-
-        return moviesModels;
-    }
 }
