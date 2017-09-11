@@ -1,51 +1,91 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.byjw.materialdesignandroid.Movies.Movies">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="5dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="3dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:text="New Release"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_movies_new_releases"
-            android:layout_margin="5dp"
-            android:overScrollMode="never"
-            android:fadeScrollbars="true"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_menu_24dp"/>
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="horizontal" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:text="Recommended for You"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:text="New Release"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_movies_recommended_for_you"
-            android:layout_margin="5dp"
-            android:overScrollMode="never"
-            android:fadeScrollbars="true"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="horizontal" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_movies_new_releases"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:fadeScrollbars="true"
+                android:overScrollMode="never"
+                android:scrollbars="horizontal" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:text="Recommended for You"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-</FrameLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_movies_recommended_for_you"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:fadeScrollbars="true"
+                android:overScrollMode="never"
+                android:scrollbars="horizontal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

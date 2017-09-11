@@ -41,7 +41,7 @@ public class MoviesPresenter implements MoviesContract.Presenter, OnItemClickLis
         ArrayList<MoviesModel> moviesModels = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            moviesModels.add(new MoviesModel(R.drawable.sample_book, "Sample Title", "Sample Genre"));
+            moviesModels.add(new MoviesModel(R.drawable.sample_movie, "Sample Title", "Sample Genre"));
         }
 
         return moviesModels;

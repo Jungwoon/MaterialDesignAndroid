@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.byjw.materialdesignandroid.Listener.OnItemClickListener;
 import com.byjw.materialdesignandroid.R;
 
@@ -45,7 +46,10 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(MoviesModel moviesModel) {
-        Glide.with(context).load(moviesModel.getImage()).into(image);
+        RequestOptions options = new RequestOptions();
+        options.centerCrop();
+
+        Glide.with(context).load(moviesModel.getImage()).apply(options).into(image);
         title.setText(moviesModel.getTitle());
         genre.setText(moviesModel.getGenre());
 

@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+//        BottomNavigationViewHelper.disableShiftMode(navigation); // 아이콘이 바뀔때 밀리는거 제거
+
         mainPresenter = new MainPresenter();
         mainPresenter.attachView(this, getSupportFragmentManager());
         mainPresenter.setFragment();
