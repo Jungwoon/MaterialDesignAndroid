@@ -17,10 +17,10 @@ import butterknife.ButterKnife;
 public class Movies extends Fragment {
 
     @BindView(R.id.recycler_movies_new_releases)
-    RecyclerView recyclerViewNew;
+    RecyclerView recyclerViewNewMovie;
 
     @BindView(R.id.recycler_movies_recommended_for_you)
-    RecyclerView recyclerViewRecommend;
+    RecyclerView recyclerViewRecommendMovie;
 
     MoviesPresenter moviesPresenter;
     MoviesAdapter moviesAdapter;
@@ -36,13 +36,13 @@ public class Movies extends Fragment {
 
         moviesAdapter = new MoviesAdapter(getContext());
 
-        recyclerViewNew.setHasFixedSize(true);
-        recyclerViewNew.setAdapter(moviesAdapter);
-        recyclerViewNew.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+        recyclerViewNewMovie.setHasFixedSize(true);
+        recyclerViewNewMovie.setAdapter(moviesAdapter);
+        recyclerViewNewMovie.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
 
-        recyclerViewRecommend.setHasFixedSize(true);
-        recyclerViewRecommend.setAdapter(moviesAdapter);
-        recyclerViewRecommend.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+        recyclerViewRecommendMovie.setHasFixedSize(true);
+        recyclerViewRecommendMovie.setAdapter(moviesAdapter);
+        recyclerViewRecommendMovie.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
 
         return view;
 
