@@ -1,12 +1,10 @@
-package com.byjw.materialdesignandroid.Movies;
+package com.byjw.materialdesignandroid.Books;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,32 +18,32 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by jungwoon on 2017. 8. 20..
+ * Created by jungwoon on 2017. 9. 17..
  */
 
-public class MoviesViewHolder extends RecyclerView.ViewHolder {
+public class BooksViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.movies_card_view_img)
+    @BindView(R.id.books_card_view_img)
     ImageView image;
 
-    @BindView(R.id.movies_card_view_title)
+    @BindView(R.id.books_card_view_title)
     TextView title;
 
-    @BindView(R.id.movies_card_view_genre)
+    @BindView(R.id.books_card_view_genre)
     TextView genre;
 
     private Context context;
     private final OnItemClickListener onItemClickListener;
 
-    public MoviesViewHolder(Context context, ViewGroup parent, OnItemClickListener onItemClickListener) {
-        super(LayoutInflater.from(context).inflate(R.layout.movies_card_view, parent, false));
+    public BooksViewHolder(Context context, ViewGroup parent, OnItemClickListener onItemClickListener) {
+        super(LayoutInflater.from(context).inflate(R.layout.books_card_view, parent, false));
         ButterKnife.bind(this, itemView);
 
         this.context = context;
         this.onItemClickListener = onItemClickListener;
     }
 
-    public void onBind(MoviesModel moviesModel, final int position) {
+    public void onBind(BooksModel booksModel, final int position) {
         RequestOptions options = new RequestOptions();
         options.centerCrop();
 
@@ -57,18 +55,10 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        Glide.with(context).load(moviesModel.getImage()).apply(options).into(image);
-        title.setText(moviesModel.getTitle());
-        genre.setText(moviesModel.getGenre());
+        Glide.with(context).load(booksModel.getImage()).apply(options).into(image);
+        title.setText(booksModel.getTitle());
+        genre.setText(booksModel.getGenre());
 
-
-//        setAnimation(itemView);
-    }
-
-    // Animation을 주기 위한 부분
-    private void setAnimation(View viewToAnimate) {
-        Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-        viewToAnimate.setAnimation(animation);
     }
 
 }

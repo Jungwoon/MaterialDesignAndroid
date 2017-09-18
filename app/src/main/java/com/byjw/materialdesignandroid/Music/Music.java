@@ -52,8 +52,8 @@ public class Music extends Fragment {
         super.onResume();
 
         musicPresenter = new MusicPresenter();
-        musicPresenter.setMoviesAdapterModel(musicAdapter);
-        musicPresenter.setMoviesAdapterView(musicAdapter);
+        musicPresenter.setMusicAdapterModel(musicAdapter);
+        musicPresenter.setMusicAdapterView(musicAdapter);
         musicPresenter.loadItems();
     }
 }

@@ -15,12 +15,12 @@ public class MusicPresenter implements MusicContract.Presenter {
     private MusicContract.View adapterView;
 
     @Override
-    public void setMoviesAdapterView(MusicContract.View adapterView) {
+    public void setMusicAdapterView(MusicContract.View adapterView) {
         this.adapterView = adapterView;
     }
 
     @Override
-    public void setMoviesAdapterModel(MusicContract.Model adapterModel) {
+    public void setMusicAdapterModel(MusicContract.Model adapterModel) {
         this.adapterModel = adapterModel;
     }
 

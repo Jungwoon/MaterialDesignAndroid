@@ -1,12 +1,21 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.byjw.materialdesignandroid.Books.Books">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.byjw.materialdesignandroid.Movies.Movies">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_books"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Books Fragment" />
+        android:layout_margin="5dp"
+        android:fadeScrollbars="true"
+        android:overScrollMode="never"
+        android:scrollbars="horizontal" />
 
-</FrameLayout>
+
+</LinearLayout>

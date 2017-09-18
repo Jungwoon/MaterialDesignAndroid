@@ -29,9 +29,9 @@ public interface MusicContract {
 
     interface Presenter {
 
-        void setMoviesAdapterView(MusicContract.View adapterView);
+        void setMusicAdapterView(MusicContract.View adapterView);
 
-        void setMoviesAdapterModel(MusicContract.Model adapterModel);
+        void setMusicAdapterModel(MusicContract.Model adapterModel);
 
         void loadItems();
 
