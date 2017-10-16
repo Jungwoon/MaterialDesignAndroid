@@ -13,7 +13,7 @@ import com.byjw.materialdesignandroid.Main.Contract.MainPresenter;
 import com.byjw.materialdesignandroid.Movies.Movies;
 import com.byjw.materialdesignandroid.Music.Music;
 import com.byjw.materialdesignandroid.R;
-import com.byjw.materialdesignandroid.Shopping.Shopping;
+import com.byjw.materialdesignandroid.News.News;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 case R.id.navigation_books:
                     mainPresenter.replaceFragment(Books.newInstance());
                     return true;
-                case R.id.navigation_shopping:
-                    mainPresenter.replaceFragment(Shopping.newInstance());
+                case R.id.navigation_news:
+                    mainPresenter.replaceFragment(News.newInstance());
                     return true;
             }
             return false;

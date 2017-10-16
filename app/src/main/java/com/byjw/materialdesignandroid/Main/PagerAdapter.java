@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.byjw.materialdesignandroid.Books.Books;
 import com.byjw.materialdesignandroid.Movies.Movies;
 import com.byjw.materialdesignandroid.Music.Music;
-import com.byjw.materialdesignandroid.Shopping.Shopping;
+import com.byjw.materialdesignandroid.News.News;
 
 /**
  * Created by jungwoon on 2017. 8. 12..
@@ -29,7 +29,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 return new Books();
             case 3:
-                return new Shopping();
+                return new News();
             default:
                 return null;
         }

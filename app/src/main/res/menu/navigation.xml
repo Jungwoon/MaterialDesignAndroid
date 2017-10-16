@@ -17,8 +17,8 @@
         android:title="Books" />
 
     <item
-        android:id="@+id/navigation_shopping"
-        android:icon="@drawable/ic_shopping_24dp"
-        android:title="Shopping" />
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/ic_news_24dp"
+        android:title="Newsstand" />
 
 </menu>

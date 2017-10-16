@@ -2,11 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.byjw.materialdesignandroid.Shopping.Shopping">
+    tools:context="com.byjw.materialdesignandroid.News.News">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_news"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Shopping Fragment" />
+        android:padding="5dp" />
 
 </FrameLayout>
