@@ -2,6 +2,7 @@ package com.byjw.materialdesignandroid.News;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class News extends Fragment {
     NewsPresenter newsPresenter;
     NewsAdapter newsAdapter;
 
+
     public static News newInstance() {
         return new News();
     }
@@ -36,6 +38,7 @@ public class News extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(newsAdapter);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         return view;
     }
