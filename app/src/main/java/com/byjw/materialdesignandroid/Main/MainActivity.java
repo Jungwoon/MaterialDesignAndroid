@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @BindView(R.id.search_menu)
     ImageView searchMenu;
+
+    @BindView(R.id.search_edit)
+    AppCompatEditText editSearch;
 
     @OnClick(R.id.search_menu)
     void onClick() {
